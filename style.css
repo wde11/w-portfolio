@@ -3,88 +3,89 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-  h1 {
+h1 {
     text-align: center;
     font-size: 48px;
     letter-spacing: 2px;
     font-weight: 500;
     margin-bottom: 30px;
-  }
-  
-  .container {
+}
+
+.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-  }
+}
 
-  .card {
+.card {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 20px;
     width: 300px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
-  }
+}
 
-  .card-intro {
+.card-intro {
     width: 300px;
     height: 300px;
-  }
-  
-  .card-hobbies {
+}
+
+.card-hobbies {
     width: 250px;
     height: 100px;
-  }
-  
-  .card-links {
+}
+
+.card-links {
     width: 250px;
     height: 100px;
-  }
-  
-  
-  .card h2 {
+}
+
+
+.card h2 {
     font-weight: 600;
     font-size: 18px;
     margin-top: 0;
-  }
-  
-  a {
+}
+
+a {
     background-color: #cbd5e1;
     text-decoration: none;
     padding: 2px 4px;
     color: #1e40af;
+    word-spacing: 2px;
     border-radius: 3px;
     font-weight: 500;
     transition: background-color 0.3s ease;
     margin: 5px;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     background-color: #a3bffa;
-  }
-  
-  em {
+}
+
+em {
     font-style: italic;
     color: #666;
-  }
-  
-  img.pixel-badge {
+}
+
+img.pixel-badge {
     image-rendering: pixelated;
     margin-right: 4px;
     vertical-align: middle;
-  }
-  
-  .note {
+}
+
+.note {
     font-weight: bold;
     margin-top: 20px;
-  }
+}
 
-  .section-title {
+.section-title {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 10px;
-  }
+}
 
 .rotating-container {
     perspective: 1000px;
@@ -92,7 +93,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 35vh;
-    
+
 }
 
 #rotating-w {
@@ -112,4 +113,23 @@ body {
     to {
         transform: rotateY(360deg);
     }
+}
+
+.discord {
+    position: relative;
+}
+
+.discord:hover::after {
+    content: "wurai";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
 }
