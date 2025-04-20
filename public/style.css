@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-intro {
+    width: 300px;
+}
+
+.card-hobbies {
+    width: 250px;
+}
+
+.card-links {
+    width: 250px;
+    height: 150px;
+}
+
+
+.card h2 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+a {
+    background-color: #cbd5e1;
+    text-decoration: none;
+    padding: 2px 4px;
+    color: #1e40af;
+    border-radius: 3px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #a3bffa;
+}
+
+em {
+    font-style: italic;
+    color: #666;
+}
+
+
+.note {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.rotating-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+
+}
+
+#rotating-w {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 120px;
+    font-weight: 700;
+    color: #171717;
+    display: inline-block;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.discord {
+    position: relative;
+    cursor: default;
+}
+
+.discord:hover::after {
+    content: "wurai";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.links-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .links-list li {
+        margin-bottom: 10px;
+}

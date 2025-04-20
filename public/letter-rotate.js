@@ -1,0 +1,1 @@
+console.log("Rotating W is active.");
