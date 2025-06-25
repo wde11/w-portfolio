@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up Music Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="mscp.css">
+
+</head>
+<body>
+
+    <button id="open-player-button" class="open-player-button">
+        Open Music Player
+    </button>
+
+    <div id="music-player-modal" class="modal-overlay">
+        <div class="modal-content">
+
+            <button id="close-player-button" class="modal-close-button" aria-label="Close Music Player">
+                <i class="fas fa-times-circle"></i>
+            </button>
+
+            <div class="main-player-container">
+
+                <div class="player-controls-section">
+
+                    <img id="album-art" class="album-art" src="https://placehold.co/180x180/4299e1/ffffff?text=Album+Art" alt="Album Art">
+
+                    <div class="song-title" id="song-title">Song Title</div>
+                    <div class="artist-name" id="artist-name">Artist Name</div>
+
+                    <div class="progress-bar-container" id="progress-bar-container">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <div class="controls">
+                        <button id="prev-button" class="control-button" aria-label="Previous">
+                            <i class="fas fa-backward icon"></i>
+                        </button>
+                        <button id="play-pause-button" class="control-button control-button-lg" aria-label="Play/Pause">
+                            <i class="fas fa-play icon-lg"></i>
+                        </button>
+                        <button id="next-button" class="control-button" aria-label="Next">
+                            <i class="fas fa-forward icon"></i>
+                        </button>
+                    </div>
+
+                    <div class="volume-container">
+                        <i class="fas fa-volume-down text-gray-300"></i>
+                        <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                        <i class="fas fa-volume-up text-gray-300"></i>
+                    </div>
+                </div>
+
+                <div class="playlist-section">
+                    <h2 class="playlist-title">Playlist</h2>
+                    <div id="playlist-container">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="mscp-function.js"></script>

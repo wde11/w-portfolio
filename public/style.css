@@ -52,7 +52,7 @@ h1 {
     flex-direction: column;
     width: fit-content;
     max-width: 300px;
-    gap: 15px;  
+    gap: 15px; 
 }
 
 
@@ -153,4 +153,18 @@ em {
 .card-hobbies li {
     margin-bottom:: 5px;
     margin-top: 5px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+hr.dotted {
+  border-top: 3px dotted #bbb;
 }
