@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/wde11/w-portfolio#readme",
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.4",
-    "tailwindcss": "^4.1.4"
+    "@tailwindcss/cli": "^4.1.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }
