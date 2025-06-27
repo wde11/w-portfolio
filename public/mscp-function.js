@@ -1,237 +1,147 @@
-const audio = new Audio();
-        let currentSongIndex = 0;
-        let isPlaying = false;
-
-        // Sample playlist (replace with your actual audio file paths and info)
-        const playlist = [
+// Data for songs
+        const songs = [
             {
-                title: "Can't Decide",
-                artist: "wurai",
-                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                albumArt: "https://placehold.co/180x180/63b3ed/ffffff?text=Song+1"
-            },
-            {
-                title: "She Want It More",
-                artist: "wurai",
-                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-                albumArt: "https://placehold.co/180x180/48bb78/ffffff?text=Song+2"
-            },
-            {
-                title: "Rhythmic Journey",
-                artist: "Artist Three",
-                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-                albumArt: "https://placehold.co/180x180/fc8181/ffffff?text=Song+3"
-            },
-            {
-                title: "Echoes of Silence",
-                artist: "Artist Four",
-                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-                albumArt: "https://placehold.co/180x180/a0aec0/ffffff?text=Song+4"
-            },
-            {
-                title: "Midnight Serenade",
-                artist: "Artist Five",
-                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-                albumArt: "https://placehold.co/180x180/ed8936/ffffff?text=Song+5"
-            },
-            {
-                title: "Starlight Dance",
-                artist: "Artist Six",
+                title: "Serene Morning",
+                artist: "Ambient Explorers",
                 src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
-                albumArt: "https://placehold.co/180x180/ecc94b/ffffff?text=Song+6"
+                albumArt: "https://placehold.co/144x144/aab8c2/4A90E2?text=Track+A"
+            },
+            {
+                title: "Digital Horizon",
+                artist: "Synthwave Dreams",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+                albumArt: "https://placehold.co/144x144/cad2da/4A90E2?text=Track+B"
+            },
+            {
+                title: "Urban Echoes",
+                artist: "City Soundscapes",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+                albumArt: "https://placehold.co/144x144/e0e5ec/4A90E2?text=Track+C"
+            },
+            {
+                title: "Whispering Pines",
+                artist: "Nature Melodies",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+                albumArt: "https://placehold.co/144x144/aab8c2/4A90E2?text=Track+D"
+            },
+            {
+                title: "Cosmic Journey",
+                artist: "Stellar Sounds",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+                albumArt: "https://placehold.co/144x144/cad2da/4A90E2?text=Track+E"
+            },
+            {
+                title: "Rainy Day Comfort",
+                artist: "Cozy Rhythms",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+                albumArt: "https://placehold.co/144x144/e0e5ec/4A90E2?text=Track+F"
+            },
+            {
+                title: "Sunset Chaser",
+                artist: "Evening Vibes",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+                albumArt: "https://placehold.co/144x144/aab8c2/4A90E2?text=Track+G"
             }
         ];
 
         // Get DOM elements
-        const openPlayerButton = document.getElementById('open-player-button');
-        const musicPlayerModal = document.getElementById('music-player-modal');
-        const closePlayerButton = document.getElementById('close-player-button');
-
-        const albumArt = document.getElementById('album-art');
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playPauseIcon = document.getElementById('play-pause-icon');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
         const songTitle = document.getElementById('song-title');
-        const artistName = document.getElementById('artist-name');
-        const playPauseButton = document.getElementById('play-pause-button');
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
-        const progressBarContainer = document.getElementById('progress-bar-container');
-        const progressBarFill = document.getElementById('progress-bar-fill');
-        const currentTimeDisplay = document.getElementById('current-time');
-        const durationDisplay = document.getElementById('duration');
-        const volumeSlider = document.getElementById('volume-slider');
-        const playPauseIcon = playPauseButton.querySelector('i');
-        const playlistContainer = document.getElementById('playlist-container');
+        const songArtist = document.getElementById('song-artist');
+        const albumArt = document.getElementById('album-art');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeSpan = document.getElementById('current-time');
+        const totalDurationSpan = document.getElementById('total-duration');
 
-        /**
-         * Loads a song from the playlist based on the index.
-         * Updates player info and highlights active song in the list.
-         * @param {number} index - The index of the song in the playlist.
-         */
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        // Function to load a song
         function loadSong(index) {
-            currentSongIndex = index;
-            const song = playlist[currentSongIndex];
-            audio.src = song.src;
-            albumArt.src = song.albumArt;
+            const song = songs[index];
+            audioPlayer.src = song.src;
             songTitle.textContent = song.title;
-            artistName.textContent = song.artist;
-            audio.load(); // Load the audio
-
-            // Update active class in playlist
-            updatePlaylistActiveState();
-
-            if (isPlaying) {
-                audio.play();
-            }
+            songArtist.textContent = song.artist;
+            albumArt.src = song.albumArt;
+            // Reset progress bar
+            progressBar.value = 0;
+            currentTimeSpan.textContent = '0:00';
+            totalDurationSpan.textContent = '0:00';
         }
 
-        /**
-         * Toggles play/pause state of the audio.
-         */
-        function togglePlayPause() {
+        // Function to play song
+        function playSong() {
+            isPlaying = true;
+            audioPlayer.play();
+            playPauseIcon.classList.remove('fa-play');
+            playPauseIcon.classList.add('fa-pause');
+        }
+
+        // Function to pause song
+        function pauseSong() {
+            isPlaying = false;
+            audioPlayer.pause();
+            playPauseIcon.classList.remove('fa-pause');
+            playPauseIcon.classList.add('fa-play');
+        }
+
+        // Event listener for play/pause button
+        playPauseBtn.addEventListener('click', () => {
             if (isPlaying) {
-                audio.pause();
-                playPauseIcon.classList.remove('fa-pause');
-                playPauseIcon.classList.add('fa-play');
+                pauseSong();
             } else {
-                audio.play();
-                playPauseIcon.classList.remove('fa-play');
-                playPauseIcon.classList.add('fa-pause');
-            }
-            isPlaying = !isPlaying;
-        }
-
-        /**
-         * Plays the next song in the playlist.
-         */
-        function playNextSong() {
-            loadSong((currentSongIndex + 1) % playlist.length);
-            if (!isPlaying) {
-                togglePlayPause(); // Start playing if it wasn't already
-            }
-        }
-
-        /**
-         * Plays the previous song in the playlist.
-         */
-        function playPreviousSong() {
-            loadSong((currentSongIndex - 1 + playlist.length) % playlist.length);
-            if (!isPlaying) {
-                togglePlayPause(); // Start playing if it wasn't already
-            }
-        }
-
-        /**
-         * Formats time in seconds to MM:SS format.
-         * @param {number} seconds - The time in seconds.
-         * @returns {string} Formatted time string.
-         */
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = Math.floor(seconds % 60);
-            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-        }
-
-        /**
-         * Renders the playlist items into the DOM.
-         */
-        function renderPlaylist() {
-            playlistContainer.innerHTML = ''; // Clear existing playlist
-            playlist.forEach((song, index) => {
-                const playlistItem = document.createElement('div');
-                playlistItem.classList.add('playlist-item');
-                playlistItem.dataset.index = index; // Store index for click handling
-
-                // Add active class if it's the current song
-                if (index === currentSongIndex) {
-                    playlistItem.classList.add('active');
-                }
-
-                playlistItem.innerHTML = `
-                    <img class="playlist-album-thumb" src="${song.albumArt}" alt="${song.title} album art">
-                    <div class="playlist-song-info">
-                        <div class="playlist-song-title">${song.title}</div>
-                        <div class="playlist-artist-name">${song.artist}</div>
-                    </div>
-                `;
-                playlistItem.addEventListener('click', () => {
-                    if (index !== currentSongIndex) { // Only load if a different song is clicked
-                        loadSong(index);
-                        if (!isPlaying) {
-                           togglePlayPause(); // Start playing if it wasn't already
-                        }
-                    } else if (index === currentSongIndex) {
-                        togglePlayPause(); // If current song is clicked, toggle play/pause
-                    }
-                });
-                playlistContainer.appendChild(playlistItem);
-            });
-        }
-
-        /**
-         * Updates the active class on playlist items based on currentSongIndex.
-         */
-        function updatePlaylistActiveState() {
-            document.querySelectorAll('.playlist-item').forEach((item, index) => {
-                if (parseInt(item.dataset.index) === currentSongIndex) {
-                    item.classList.add('active');
-                    // Scroll to active item if it's out of view
-                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        // Event Listeners for Modal
-        openPlayerButton.addEventListener('click', () => {
-            musicPlayerModal.classList.add('open');
-        });
-
-        closePlayerButton.addEventListener('click', () => {
-            musicPlayerModal.classList.remove('open');
-        });
-
-        // Close modal if clicked outside modal-content
-        musicPlayerModal.addEventListener('click', (e) => {
-            if (e.target === musicPlayerModal) {
-                musicPlayerModal.classList.remove('open');
+                playSong();
             }
         });
 
-        // Event Listeners for Music Player Controls
-        playPauseButton.addEventListener('click', togglePlayPause);
-        nextButton.addEventListener('click', playNextSong);
-        prevButton.addEventListener('click', playPreviousSong);
-
-        audio.addEventListener('timeupdate', () => {
-            if (audio.duration) {
-                const progressPercent = (audio.currentTime / audio.duration) * 100;
-                progressBarFill.style.width = `${progressPercent}%`;
-                currentTimeDisplay.textContent = formatTime(audio.currentTime);
-            }
-        });
-
-        audio.addEventListener('loadedmetadata', () => {
-            durationDisplay.textContent = formatTime(audio.duration);
-        });
-
-        audio.addEventListener('ended', playNextSong);
-
-        progressBarContainer.addEventListener('click', (e) => {
-            const width = progressBarContainer.clientWidth;
-            const clickX = e.offsetX;
-            const duration = audio.duration;
-            if (duration) {
-                audio.currentTime = (clickX / width) * duration;
-            }
-        });
-
-        volumeSlider.addEventListener('input', () => {
-            audio.volume = volumeSlider.value;
-        });
-
-        // Initial setup on window load
-        window.onload = () => {
-            renderPlaylist();
+        // Event listener for next button
+        nextBtn.addEventListener('click', () => {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
             loadSong(currentSongIndex);
-            audio.volume = volumeSlider.value;
+            playSong();
+        });
+
+        // Event listener for previous button
+        prevBtn.addEventListener('click', () => {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+            playSong();
+        });
+
+        // Event listener for time update (for progress bar)
+        audioPlayer.addEventListener('timeupdate', () => {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.value = progress || 0; // Ensure it's not NaN
+
+            // Update current time
+            const currentMinutes = Math.floor(audioPlayer.currentTime / 60);
+            const currentSeconds = Math.floor(audioPlayer.currentTime % 60).toString().padStart(2, '0');
+            currentTimeSpan.textContent = `${currentMinutes}:${currentSeconds}`;
+        });
+
+        // Event listener for song loaded (to get total duration)
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            const totalMinutes = Math.floor(audioPlayer.duration / 60);
+            const totalSeconds = Math.floor(audioPlayer.duration % 60).toString().padStart(2, '0');
+            totalDurationSpan.textContent = `${totalMinutes}:${totalSeconds}`;
+        });
+
+        // Event listener for progress bar change (seek functionality)
+        progressBar.addEventListener('input', () => {
+            const seekTime = (progressBar.value / 100) * audioPlayer.duration;
+            audioPlayer.currentTime = seekTime;
+        });
+
+        // Event listener for when a song ends
+        audioPlayer.addEventListener('ended', () => {
+            nextBtn.click(); // Automatically play the next song
+        });
+
+        // Initial load of the first song
+        window.onload = () => {
+            loadSong(currentSongIndex);
         };
