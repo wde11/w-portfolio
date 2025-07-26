@@ -53,6 +53,10 @@ h1 {
     gap: 15px; 
 }
 
+.card-links li {
+    padding: 5px;
+}
+
 
 .card h2 {
     font-weight: 600;
@@ -140,12 +144,12 @@ em {
 
 .links-list {
     list-style-type: none;
-    padding: 0;
+    padding: 0px;
     }
 
 .links-list li {   
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .card-hobbies li {
