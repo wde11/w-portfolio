@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terminal...</title>
+    <link rel="stylesheet" href="./css/terminal.css">
+</head>
+<body>
+    <div id="terminal" class="w-full h-full p-4 bg-[#101014] overflow-y-auto">
+        <div id="output"></div>
+        <div class="flex items-center">
+            <span id="prompt" class="hidden">user@wde11:~$</span>
+            <span id="input-line" class="flex-1"></span>
+            <span id="cursor" class="cursor hidden"></span>
+        </div>
+    </div>
+
+    <script src="./js/terminal.js"></script>
+</body>
+</html>
