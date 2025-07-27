@@ -1,0 +1,82 @@
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 10px;
+            overflow: hidden; /* Prevent body scrollbars */
+        }
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1a1b26;
+            color: #a9b1d6;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        /* Blinking cursor effect */
+        .cursor {
+            display: inline-block;
+            background-color: #a9b1d6;
+            width: 10px;
+            height: 1.2em;
+            animation: blink 1s step-end infinite;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        @keyframes blink {
+            from, to {
+                background-color: transparent;
+            }
+            50% {
+                background-color: #a9b1d6;
+            }
+        }
+        /* Custom scrollbar for a more thematic look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1b26;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #414868;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #565f89;
+        }
+
+        /* Menu Styles */
+        .menu-item {
+            position: relative;
+            padding-left: 2em; /* Make space for the '>' */
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .menu-item.selected {
+            background-color: #2c3142;
+        }
+
+        .menu-item.selected::before {
+            content: '>';
+            position: absolute;
+            left: 0.5em;
+            font-weight: bold;
+            color: #bb9af7;
+        }
+        
+        /* Theme: Green */
+        body.theme-green { background-color: #011a01; color: #00ff41; }
+        body.theme-green #terminal { background-color: #011401; }
+        body.theme-green .cursor { background-color: #00ff41; }
+        body.theme-green .menu-item.selected { background-color: #003b00; }
+        body.theme-green .menu-item.selected::before { color: #39ff72; }
+        body.theme-green ::-webkit-scrollbar-track { background: #011a01; }
+        body.theme-green ::-webkit-scrollbar-thumb { background: #005200; }
+
+        /* Theme: Amber */
+        body.theme-amber { background-color: #211600; color: #ffb000; }
+        body.theme-amber #terminal { background-color: #1a1000; }
+        body.theme-amber .cursor { background-color: #ffb000; }
+        body.theme-amber .menu-item.selected { background-color: #4d3300; }
+        body.theme-amber .menu-item.selected::before { color: #ffc94d; }
+        body.theme-amber ::-webkit-scrollbar-track { background: #211600; }
+        body.theme-amber ::-webkit-scrollbar-thumb { background: #6e4500; }
