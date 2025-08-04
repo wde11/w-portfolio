@@ -154,10 +154,22 @@ em {
 .links-list li {   
     margin-bottom: 0px;
     margin-top: 0px;
+   
 }
 
+li::before {
+    content: '> ';
+    font-weight: bolder;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
 .card-hobbies li {
-    margin-bottom:: 5px;
+    margin-bottom: 5px;
     margin-top: 5px;
 }
 
