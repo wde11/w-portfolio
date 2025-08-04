@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>we..we..ebsite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css">
+</head>
+
+<body>
+
+    <div class="rotating-container">
+        <span id="rotating-w">w</span>
+    </div>
+
+    <div class="container">
+        <div class="card card-intro">
+            <div class="section-title">Welcome to my Portfolio</div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="./img/us.jpg" alt="Profile Picture" style="width:auto; height:150px; ">
+                <ul>
+                    <li>I'm 20</li>
+                    <li>I produce music and designing stuff</li>
+                    <li>Junior in college</li>
+                    <li>I attend UIC</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card card-hobbies">
+            <div class="section-title">Hobbies</div>
+            <ul>
+                <li>
+                    Music?
+                    <a href="./mscp.html" class="confirm-link">Listen</a>
+                </li>
+                <li>Graphic Design? <a href="#" class="confirm-link"> Gallery</a></li>
+                <li>Projects? <a href="./projects.html" class="confirm-link"> View</a></li>
+            </ul>
+        </div>
+
+
+        <div class="card card-links">
+            <div class="section-title">Links</div>
+            <ul class="links-list">
+                <li><a href="https://github.com/wde11" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-github" style="font-size:14px;"></i> Github</a></li>
+                <li><a href="#" class="discord"><i class="fab fa-discord" style="font-size:14px;"></i> Discord</a></li>
+                <li><a href="https://instagram.com/wrldwar_2" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-instagram" style="font-size:14px;"></i> Instagram</a></li>
+                <li><a href="https://open.spotify.com/user/tobylovescorn" class="spotify" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-spotify" style="font-size:14px;"></i> Spotify</a>
+                </li>
+                <li><a href="https://soundcloud.com/wurai" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-soundcloud" style="font-size:14px;"></i> Soundcloud</a></li>
+            </ul>
+        </div>
+
+    
+        <div class="footer">
+            <p>@tperalta_230000001926@uic.edu.ph</p>
+        </div>
+
+    </div>
+
+    <script src="./js/swal.js"></script>
+
+</body>
+</html>
