@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Layout</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="./css/style2.css">
+    <!-- Tailwind CSS for utility classes (optional, but used for layout helpers) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="layout-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="rotating-w">
+            <h1 class="text-3xl font-bold">w</h1>
+            </div>
+        </header>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+
+            <!-- Navigation Sidebar -->
+            <nav class="navigation">
+                <h2>nav</h2>
+                <a href="#" class="nav-link"> place</a>
+                <a href="#" class="nav-link"> music</a>
+                <a href="#" class="nav-link"> graphics</a>
+                <a href="#" class="nav-link"> me</a>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <h2>wsg</h2>
+                <p>
+                <ul>
+                    <li>I'm 20</li>
+                    <li>I produce music and designing stuff</li>
+                    <li>Junior in college</li>
+                    <li>I attend UIC</li>
+                </ul>
+                
+                </p>
+
+                <p>
+                    The layout is now separated, with a distinct navigation bar on the left and this content block on the right.
+                </p>
+
+                <!-- Bottom Section with Status and Image -->
+                <div class="flex flex-col lg:flex-row gap-6 items-start mt-8">
+                    
+                    <!-- Image Placeholder -->
+                    <div class="w-full lg:w-1/2 flex items-center justify-center bg-gray-200 rounded-lg h-64">
+                         <span class="text-gray-500">Image Placeholder</span>
+                    </div>
+
+                    <!-- Status Box -->
+                    <div class="w-full lg:w-1/2 status-box">
+                        <h3>Status Update</h3>
+                        <p class="text-gray-600">
+                            This is a simple status box.
+                        </p>
+                        <p class="mt-4">
+                            <strong>Feeling:</strong> <span>...</span>
+                        </p>
+                         <p class="mt-2">
+                            <strong>At:</strong> <span>...</span>
+                        </p>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+</body>
+</html>
