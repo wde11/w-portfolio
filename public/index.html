@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blank Layout</title>
+    <title>my portfolio</title>
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="./css/style2.css">
     <!-- Tailwind CSS for utility classes (optional, but used for layout helpers) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css">
 </head>
@@ -29,17 +30,28 @@
             <!-- Navigation Sidebar -->
             <nav class="navigation">
                 <h2>nav</h2>
+                <a href="./index.html" class="nav-link"> me</a>
                 <a href="./projects.html" class="nav-link confirm-link"> projects</a>
                 <a href="#" class="nav-link"> music</a>
-                <a href="./gallery.html" class="nav-link confirm-link"> graphics</a>
-                <a href="./index.html" class="nav-link"> me</a>
+                <a href="./gallery.html" class="nav-link"> graphics</a>
             </nav>
 
             <!-- Main Content Area -->
             <main class="main-content">
                 <h2>it's me</h2>
+                <div class="flex flex-col lg:flex-row gap-4 items-start mt-6 mb-6">
+                    <div class="w-full lg:w-1/2 flex items-center justify-center bg-gray-200 rounded-lg h-64">
+                        <img src="./img/me.jpg" alt="" class="object-cover w-full h-full rounded-lg">
+                    </div>
+                    <div class="w-full lg:w-1/2 flex items-center justify-center bg-gray-200 rounded-lg h-64">
+                        <img src="./img/me2.jpg" alt="" class="object-cover w-full h-full rounded-lg">
+                    </div>
+                    <div class="w-full lg:w-1/2 flex items-center justify-center bg-gray-200 rounded-lg h-64">
+                        <img src="./img/me3.jpg" alt="" class="object-cover w-full h-full rounded-lg">
+                    </div>
+                </div>
                 <p>
-                    Versatile Lead Designer and CMO with a design-first approach to product growth and brand ecosystems.
+                    I'm Troy Wendell, a 21 year old versatile designer with a design-first approach to product growth and brand ecosystems.
                     I bridge creative direction and technical development, from UI kits to full-stack web applications.
                 </p>
                 <ul>
@@ -60,36 +72,38 @@
                         <img src="https://cdn.simpleicons.org/python" alt="Python" title="Python" class="tech-icon">
                     </div>
                 </div>
+                <div class="tech-stack" aria-label="Software used">
+                    <span class="tech-stack-label">software used</span>
+                    <div class="tech-stack-icons">
+                        <img src="https://cdn.simpleicons.org/figma" alt="Figma" title="Figma" class="tech-icon">
+                        <img src="https://cdn.simpleicons.org/davinciresolve" alt="DaVinci Resolve" title="DaVinci Resolve" class="tech-icon">
+                        <img src="https://cdn.simpleicons.org/protools" alt="Pro Tools" title="Pro Tools" class="tech-icon">
+                    </div>
+                </div>
+                <div class="download-buttons" aria-label="Download files">
+                    <a href="../Peralta_resume.pdf" download="Peralta_resume.pdf" class="download-btn">Download Resume</a>
+                    <a href="../Peralta_CV.pdf" download="Peralta_CV.pdf" class="download-btn">Download CV</a>
+                </div>
                      
 
-                <!-- Bottom Section with Status and Image -->
-                <div class="flex flex-col lg:flex-row gap-4 items-start mt-8">
-                    
-                    <!-- Image Placeholder -->
-                    <div class="w-full lg:w-1/2 flex items-center justify-center bg-gray-200 rounded-lg h-64">
-                         <!-- <span class="text-gray-500">Image Placeholder</span> -->
-                          <img src="./img/gang.JPG" alt="" class="object-cover w-full h-full rounded-lg">
+                <footer class="portfolio-footer">
+                    <p>email: troywendellgperalta@gmail.com</p>
+                    <p>contact: 09266858019</p>
+                    <div class="social-links" aria-label="Social links">
+                        <a href="https://www.facebook.com/wrldwarz/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f social-icon" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.instagram.com/wde1111/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram social-icon" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/wde11" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <i class="fa-brands fa-github social-icon" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/troy-wendell-p-0757552a7/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in social-icon" aria-hidden="true"></i>
+                        </a>
                     </div>
-
-                    <div class="w-full flex items-center justify-center bg-gray-200 rounded-lg h-64">
-                         <!-- <span class="text-gray-500">Image Placeholder</span> -->
-                          <img src="./img/us.jpg" alt="" class="object-fit w-full h-full rounded-lg">
-                    </div>
-
-                    <!-- Status Box -->
-                    <!-- <div class="w-full lg:w-1/2 status-box">
-                        <h3>Status Update</h3>
-                        <p class="text-gray-600">
-                            This is a simple status box.
-                        </p>
-                        <p class="mt-4">
-                            <strong>Feeling:</strong> <span>...</span>
-                        </p>
-                         <p class="mt-2">
-                            <strong>At:</strong> <span>...</span>
-                        </p>
-                    </div> -->
-                </div>
+                </footer>
             </main>
 
         </div>
