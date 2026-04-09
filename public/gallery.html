@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="./css/style2.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.2/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="layout-container">
+        <header class="header">
+            <a href="./index.html">
+                <h1 class="rotating-w">w</h1>
+            </a>
+        </header>
+
+        <div class="content-wrapper">
+            <nav class="navigation">
+                <h2>nav</h2>
+                <a href="./projects.html" class="nav-link confirm-link"> projects</a>
+                <a href="#" class="nav-link"> music</a>
+                <a href="./gallery.html" class="nav-link"> graphics</a>
+                <a href="./index.html" class="nav-link"> me</a>
+            </nav>
+
+            <main class="main-content">
+                <h2>gallery</h2>
+                <p>Selected graphic design and art pieces.</p>
+
+                <div class="gallery-grid">
+                    <figure class="gallery-item">
+                        <img src="./img/cybertribal_2.png" alt="Cybertribal design variant 2" class="gallery-image gallery-openable">
+                        <figcaption>Cybertribal v2</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./img/cybertribal.png" alt="Cybertribal design" class="gallery-image gallery-openable">
+                        <figcaption>Cybertribal</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./img/neurozen_peppermint.jpg" alt="Neurozen Peppermint design" class="gallery-image gallery-openable">
+                        <figcaption>Neurozen Peppermint</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./img/limbo.png" alt="Limbo visual design" class="gallery-image gallery-openable">
+                        <figcaption>Limbo</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./img/scalp_logo_b.jpg" alt="Scalp logo design" class="gallery-image gallery-openable">
+                        <figcaption>Scalp Logo</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="./img/xpart_logo_white.jpg" alt="Xpart logo in white" class="gallery-image gallery-openable">
+                        <figcaption>Xpart Logo White</figcaption>
+                    </figure>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close image overlay">&times;</button>
+        <img id="lightbox-image" src="" alt="" class="lightbox-image">
+    </div>
+
+    <script src="./js/swal.js"></script>
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const openableImages = document.querySelectorAll('.gallery-openable');
+
+        openableImages.forEach((img) => {
+            img.addEventListener('click', () => {
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt;
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
